@@ -24,6 +24,10 @@ describe MarkupCalculator do
       calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
       expect(calc.material_markup).to eq(calc.flat_markup * 0.13)
     end
+    it 'has a 2% markup for electronics' do
+      calc = MarkupCalculator.new('$1,299.99', '3 people', 'electronics')
+      expect(calc.material_markup).to eq(calc.flat_markup * 0.02)
+    end
   end
 end
 
