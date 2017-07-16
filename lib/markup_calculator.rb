@@ -9,8 +9,14 @@ def initialize(base_price, worker_count, material_type)
 end
 
 def format_flat_markup(base_price)
-  base_price.delete('$,').to_f + (base_price.delete('$,').to_f * 0.05)
+  formated_base_price = base_price.delete('$,').to_f
+  formated_base_price + (formated_base_price * 0.05)
 end
+
+def worker_markup
+  flat_markup * (worker_count * 0.0012)
+end
+
 
 # Without exception, there is a flat markup on all jobs of 5%
 # For each person that needs to work on the job, there is a markup of 1.2%
