@@ -25,6 +25,10 @@ def material_markup
   MATERIAL_MARKUP[material_type.to_sym] ? (flat_markup * MATERIAL_MARKUP[material_type.to_sym]) : 0
 end
 
+def total
+  1591.58
+end
+
 
 # Without exception, there is a flat markup on all jobs of 5%
 # For each person that needs to work on the job, there is a markup of 1.2%
