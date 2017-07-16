@@ -1,14 +1,6 @@
 require_relative '../lib/markup_calculator'
 
 describe MarkupCalculator do
-  context 'flat markup price' do
-    it 'accepts a base price, number of workers and material type' do
-      calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
-      expect(calc.flat_markup).to eq(1299.99 + (1299.99 * MarkupCalculator::FLAT_MARKUP))
-      expect(calc.worker_count).to eq(3)
-      expect(calc.material_type).to eq('food')
-    end
-  end
   context '#worker_markup' do
     it 'has a worker markup of 1.2% per person' do
       calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
