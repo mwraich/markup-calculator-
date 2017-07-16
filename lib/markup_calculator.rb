@@ -2,8 +2,8 @@ class MarkupCalculator
 attr_reader :base_price, :worker_count, :material_type
 
 def initialize(base_price, worker_count, material_type)
-  @base_price = base_price
-  @worker_count = worker_count
+  @base_price = base_price.delete('$,').to_f
+  @worker_count = worker_count.split.first.to_i
   @material_type = material_type
 end
 
