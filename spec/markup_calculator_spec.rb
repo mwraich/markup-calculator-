@@ -38,9 +38,13 @@ describe MarkupCalculator do
       calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
       expect(calc.total).to eq(1591.58)
     end
-    it 'accepts $5,432.00, 1 person, drugs and calculates $6,199.81' do
+    it 'accepts $5,432.00, 1 person, drugs and outputs $6,199.81' do
       calc = MarkupCalculator.new('$5,432.00', '1 person', 'drugs')
       expect(calc.total).to eq(6199.81)
+    end
+    it 'accepts $12,456.95, 4 people, books and outputs $13,707.63' do
+      calc = MarkupCalculator.new('$12,456.95', '4 people', 'books')
+      expect(calc.total).to eq(13707.63)
     end
   end
 end
