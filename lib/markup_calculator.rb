@@ -26,7 +26,8 @@ def material_markup
 end
 
 def total
-  (flat_markup + worker_markup + material_markup).round(2)
+  total = (flat_markup + worker_markup + material_markup).round(2)
+  "$#{total.to_s.gsub(/(\d)(?=\d{3}+(\.\d*)?$)/, '\1,')}"
 end
 
 # Without exception, there is a flat markup on all jobs of 5%
