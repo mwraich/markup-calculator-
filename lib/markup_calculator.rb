@@ -3,7 +3,7 @@ attr_reader :worker_count, :material_type
 attr_accessor :flat_markup
 
 FLAT_MARKUP = 0.05.freeze
-WORKER_MARKUP = 0.0012.freeze
+WORKER_MARKUP = 0.012.freeze
 MATERIAL_MARKUP = {drugs: 0.075, food: 0.13, electronics: 0.02}
 
 def initialize(base_price, worker_count, material_type)
