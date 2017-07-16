@@ -2,6 +2,10 @@ class MarkupCalculator
 attr_reader :worker_count, :material_type
 attr_accessor :flat_markup
 
+FLAT_MARKUP = 0.05.freeze
+WORKER_MARKUP = 0.0012.freeze
+
+
 def initialize(base_price, worker_count, material_type)
   @flat_markup = format_flat_markup(base_price)
   @worker_count = worker_count.split.first.to_i
@@ -10,11 +14,11 @@ end
 
 def format_flat_markup(base_price)
   formated_base_price = base_price.delete('$,').to_f
-  formated_base_price + (formated_base_price * 0.05)
+  formated_base_price + (formated_base_price * FLAT_MARKUP)
 end
 
 def worker_markup
-  flat_markup * (worker_count * 0.0012)
+  flat_markup * (worker_count * WORKER_MARKUP)
 end
 
 
