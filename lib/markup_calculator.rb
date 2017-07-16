@@ -1,10 +1,15 @@
 class MarkupCalculator
-attr_reader :base_price, :worker_count, :material_type
+attr_reader :worker_count, :material_type
+attr_accessor :flat_markup
 
 def initialize(base_price, worker_count, material_type)
-  @base_price = base_price.delete('$,').to_f
+  @flat_markup = format_flat_markup(base_price)
   @worker_count = worker_count.split.first.to_i
   @material_type = material_type
+end
+
+def format_flat_markup(base_price)
+  base_price.delete('$,').to_f + (base_price.delete('$,').to_f * 0.05)
 end
 
 # Without exception, there is a flat markup on all jobs of 5%
