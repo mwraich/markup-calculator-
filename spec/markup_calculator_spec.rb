@@ -16,9 +16,13 @@ describe MarkupCalculator do
     end
   end
   context '#material_markup' do
-    it 'has a 13% markup for drugs' do
+    it 'has a 7.5% markup for drugs' do
       calc = MarkupCalculator.new('$1,299.99', '3 people', 'drugs')
       expect(calc.material_markup).to eq(calc.flat_markup * 0.075)
+    end
+    it 'has a 13% markup for food' do
+      calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
+      expect(calc.material_markup).to eq(calc.flat_markup * 0.13)
     end
   end
 end
