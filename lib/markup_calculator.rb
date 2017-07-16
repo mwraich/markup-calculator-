@@ -2,14 +2,14 @@ class MarkupCalculator
   attr_reader :worker_count, :material_type
   attr_accessor :flat_markup
 
-  FLAT_MARKUP = 0.05.freeze
-  WORKER_MARKUP = 0.012.freeze
-  MATERIAL_MARKUP = {drugs: 0.075, food: 0.13, electronics: 0.02}
+  FLAT_MARKUP = 0.05
+  WORKER_MARKUP = 0.012
+  MATERIAL_MARKUP = { drugs: 0.075, food: 0.13, electronics: 0.02 }.freeze
 
   def initialize(base_price, worker_count, material_type)
     @flat_markup = format_flat_markup(base_price)
     @worker_count = worker_count.split.first.to_i
-    @material_type = material_type
+    @material_type = material_type.to_sym
   end
 
   def format_flat_markup(base_price)
@@ -22,7 +22,7 @@ class MarkupCalculator
   end
 
   def material_markup
-    MATERIAL_MARKUP[material_type.to_sym] ? (flat_markup * MATERIAL_MARKUP[material_type.to_sym]) : 0
+    MATERIAL_MARKUP[material_type] ? (flat_markup * MATERIAL_MARKUP[material_type]) : 0
   end
 
   def total
