@@ -26,9 +26,8 @@ def material_markup
 end
 
 def total
-  1591.58
+  (flat_markup + worker_markup + material_markup).round(2)
 end
-
 
 # Without exception, there is a flat markup on all jobs of 5%
 # For each person that needs to work on the job, there is a markup of 1.2%
