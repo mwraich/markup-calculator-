@@ -24,8 +24,10 @@ end
 def material_markup
   if material_type == 'drugs'
     flat_markup * 0.075
-  else
+  elsif material_type == 'food'
     flat_markup * 0.13
+  else
+    flat_markup * 0.02
   end
 end
 
