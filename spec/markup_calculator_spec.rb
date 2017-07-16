@@ -7,6 +7,11 @@ describe MarkupCalculator do
     expect(calc.worker_count).to eq(3)
     expect(calc.material_type).to eq('food')
   end
+
+  it 'has a worker markup of 1.2% per person' do
+    calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
+    expect(calc.worker_markup).to eq(calc.flat_markup * (3 * 0.0012))
+  end
 end
 
 #1
