@@ -4,7 +4,7 @@ attr_accessor :flat_markup
 
 FLAT_MARKUP = 0.05.freeze
 WORKER_MARKUP = 0.0012.freeze
-
+MATERIAL_MARKUP = {drugs: 0.075, food: 0.13, electronics: 0.02}
 
 def initialize(base_price, worker_count, material_type)
   @flat_markup = format_flat_markup(base_price)
@@ -22,15 +22,7 @@ def worker_markup
 end
 
 def material_markup
-  if material_type == 'drugs'
-    flat_markup * 0.075
-  elsif material_type == 'food'
-    flat_markup * 0.13
-  elsif material_type == 'electronics'
-    flat_markup * 0.02
-  else
-    0
-  end
+  MATERIAL_MARKUP[material_type.to_sym] ? (flat_markup * MATERIAL_MARKUP[material_type.to_sym]) : 0
 end
 
 
