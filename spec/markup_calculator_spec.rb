@@ -3,8 +3,8 @@ require_relative '../lib/markup_calculator'
 describe MarkupCalculator do
   it 'accepts a base price, number of workers and material type' do
     calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
-    expect(calc.base_price).to eq('$1,299.99')
-    expect(calc.worker_count).to eq('3 people')
+    expect(calc.base_price).to eq(1299.99)
+    expect(calc.worker_count).to eq(3)
     expect(calc.material_type).to eq('food')
   end
 end
