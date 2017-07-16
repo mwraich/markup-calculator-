@@ -33,6 +33,12 @@ describe MarkupCalculator do
       expect(calc.material_markup).to eq(0)
     end
   end
+  context '#total' do
+    it 'accepts $1,299.99, 3 people, food and outputs $1,591.58' do
+      calc = MarkupCalculator.new('$1,299.99', '3 people', 'food')
+      expect(calc.total).to eq(1591.58)
+    end
+  end
 end
 
 #1
