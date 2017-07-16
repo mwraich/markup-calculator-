@@ -21,6 +21,10 @@ def worker_markup
   flat_markup * (worker_count * WORKER_MARKUP)
 end
 
+def material_markup
+  flat_markup * 0.075
+end
+
 
 # Without exception, there is a flat markup on all jobs of 5%
 # For each person that needs to work on the job, there is a markup of 1.2%
